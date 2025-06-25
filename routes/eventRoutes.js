@@ -14,10 +14,10 @@ const router = express.Router();
 
 // Public
 router.get("/", getAllEvents);
-router.get("/search", searchEvents); // ?date=2025-06-30&location=lagos
+router.get("/search", searchEvents); 
 router.get("/:id", getEventById);
 
-// Protected (organizer)
+// Protected (organizer) can only be accessed by authenticated users who are organizers
 router.post("/", authMiddleware, createEvent);
 router.put("/:id", authMiddleware, updateEvent);
 router.delete("/:id", authMiddleware, deleteEvent);

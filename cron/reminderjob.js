@@ -18,7 +18,7 @@ const sendEventReminders = async () => {
         {
           model: User,
           as: "attendees", // from Event.belongsToMany
-          through: { attributes: [] }, // don't include junction table
+          through: { attributes: [] }, 
         },
       ],
     });
@@ -39,7 +39,7 @@ const sendEventReminders = async () => {
   }
 };
 
-// Run this every day at 8 AM
+//this code will Run this every day at 8 AM
 export const startReminderJob = () => {
   cron.schedule("0 8 * * *", sendEventReminders);
 };
